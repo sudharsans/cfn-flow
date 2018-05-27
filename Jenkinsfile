@@ -8,6 +8,7 @@ pipeline {
     }
     stage('Compile with Maven') {
       steps {
+        tool 'maven-3.5.3'
         sh 'mvn package'
       }
     }
