@@ -1,5 +1,8 @@
 pipeline {
   agent any
+    tools {
+        maven 'maven-3.5.3' 
+    }
   stages {
     stage('Source Download') {
       steps {
@@ -8,10 +11,7 @@ pipeline {
     }
     stage('Compile with Maven') {
       steps {
-        sh '
-        tool 'maven-3.5.3'
-        mvn package
-        '
+        sh 'mvn package'
       }
     }
   }
